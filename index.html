@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Call Demo</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    // import axios from 'axios'
+    function callAPI() {
+        const postData = {
+            "email": `${Math.random()}@GMAIL.COM`,
+            "name": "AAAA",
+            "password": "string",
+            "gameId": "779CF2C1-3529-4DB2-366B-08DC51029963",
+            "groupId": 0
+        };
+
+    axios.post('https://62.171.155.24/api/auth/Signup', postData)
+    .then(response => {
+        document.getElementById("result").innerText = JSON.stringify(response.data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    }
+</script>
+</head>
+<body>
+    <h1>API Call Demo</h1>
+    <button onclick="callAPI()">Call API</button>
+    <div id="result"></div>
+</body>
+</html>
